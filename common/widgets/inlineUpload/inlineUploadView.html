@@ -1,0 +1,15 @@
+﻿<div class=" fileupload-wrapper" data-bind="stopEvent: 'mouseup mouseup', lazyUpload: uploadSettings, uploadCallbacks: uploadCallbacks">
+    <input type="button" data-upload-init class="icon-attachments"/>
+    <div data-upload-viewport class="fileupload-window">
+        <form method="POST" enctype="multipart/form-data" data-bind="attr: { 'action': uploadUrl }">
+            <div data-upload-drag-zone class="drugndrop-area"></div>
+            <div class="fileupload-btns">
+                <div class="btn green">
+                    <span data-bind="localizedText: 'CommonUserMessageInlineUploadAttach'"></span>
+                    <input type="file" multiple data-bind="localizedAttr: { title: 'CommonUserMessageInlineUploadAttach' }">
+                </div>
+            </div>
+        </form>
+        <input data-upload-hide type="button" class="btn dark" data-bind="localizedValue: 'CommonUserMessageOK'" />
+    </div>
+</div>
