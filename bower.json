@@ -4,6 +4,7 @@
   "description": "Reusable code base for Enterprise SPA applications based on Durandal and Knokout libraries",
   "homepage": "https://github.com/EBTRussia/e2e4",
   "license": "MIT",
+  "main": "src",
   "keywords": [
         "SPA",
         "Durandal",
