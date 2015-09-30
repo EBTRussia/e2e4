@@ -1,0 +1,23 @@
+{
+  "newcap": false,
+  "undef": true,
+  "strict": true,
+  "unused": true,
+  "nonbsp": true,
+  "camelcase": true,
+  "immed": true,
+  "curly": true,
+  "eqeqeq": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "quotmark": true,
+  "maxdepth": 5,
+  "browser":  true,
+  "globals": {
+    "ETR": true,
+    "define": true,
+    "module": true,
+    "alert":  true
+  }
+}

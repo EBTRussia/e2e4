@@ -3,9 +3,9 @@
   "main": "e2e4.js",
   "ignore": [
     "**/.*",
-    "bower_components",
+    "libs",
     "node_modules",
-    "Gruntfile.js",
+    "gruntfile.js",
     "package.json",
     "e2e4.sln"
   ]
