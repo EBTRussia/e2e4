@@ -4,7 +4,7 @@
     "description": "Reusable code base for Enterprise SPA applications based on Durandal and Knokout libraries",
     "homepage": "https://github.com/EBTRussia/e2e4",
     "author": "Fedor Shchudlo <f.shchudlo@eastbanctech.ru> (https://github.com/fshchudlo)",
-    "contributors": [    ],
+    "contributors": [],
     "keywords": [
         "SPA",
         "Durandal",
