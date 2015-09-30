@@ -1,0 +1,37 @@
+{
+	 "name": "e2e4",
+    "version": "0.0.1",
+    "description": "Reusable code base for Enterprise SPA applications based on Durandal and Knokout libraries",
+    "homepage": "https://github.com/EBTRussia/e2e4",
+    "author": "Fedor Shchudlo <f.shchudlo@eastbanctech.ru> (https://github.com/fshchudlo)",
+    "contributors": [    ],
+    "keywords": [
+        "SPA",
+        "Durandal",
+        "Knockout",
+        "Enterprise applications"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EBTRussia/e2e4"
+    },
+    "bugs": {
+        "url": "https://github.com/EBTRussia/e2e4/issues"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "grunt": "~0.4.5",
+        "grunt-cli": "~0.1.13",
+        "grunt-bower-task": "~0.4.0",
+        "grunt-contrib-clean": "~0.6.0",
+        "grunt-contrib-concat": "~0.4.0",
+        "grunt-contrib-uglify": "~0.4.0",
+        "grunt-contrib-requirejs": "~0.4.4",
+        "grunt-contrib-watch": "~0.6.1",
+        "grunt-contrib-cssmin": "~0.9.0",
+        "grunt-contrib-htmlmin": "~0.3.0",
+        "grunt-contrib-copy": "~0.5.0",
+        "grunt-text-replace": "~0.4.0",
+        "grunt-contrib-jshint":  "0.10.0"
+    }
+}

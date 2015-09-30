@@ -1,2 +1,3 @@
-﻿.vs/
-e2e4.sln
+﻿#
+/.vs
+/node_modules
