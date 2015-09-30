@@ -1,0 +1,12 @@
+{
+  "name": "e2e4",
+  "main": "e2e4.js",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "Gruntfile.js",
+    "package.json",
+    "e2e4.sln"
+  ]
+}
