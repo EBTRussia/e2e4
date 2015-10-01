@@ -235,78 +235,6 @@
             });
         }
     };
-    ko.bindingHandlers.navTo = {
-        init: function (element, valueAccessor)
-        {
-            var goToFn = function (evt)
-            {
-                evt.preventDefault();
-                var hrefPattern = ko.unwrap(valueAccessor().href);
-                var paramsObj = ko.unwrap(valueAccessor().params);
-                var leanParams = ko.unwrap(valueAccessor().leanParams) !== false ? true : false;
-                ko.navigateSmoothly(hrefPattern, paramsObj, leanParams);
-            };
-            jquery(element).click(goToFn);
-            ko.utils.domNodeDisposal.addDisposeCallback(element, function ()
-            {
-                jquery(element).off('click', goToFn);
-                goToFn = null;
-            });
-        }
-    };
-    ko.bindingHandlers.dodgeBlock =
-    {
-        init: function (element, valueAccessor)
-        {
-            var handler = function ()
-            {
-                var $element = jquery(element);
-                if (ko.unwrap(valueAccessor()) === true)
-                {
-                    jquery('html').addClass('has-dodged-content');
-                    if (ETR.UISettings.HasAnimations)
-                    {
-                        $element.removeClass('dodged-out').addClass('dodged-in collapsed').one(ETR.UISettings.AnimationEndEventName, function ()
-                        {
-                            jquery(ETR.UISettings.MainScrollAreaSelector).scrollTop(0);
-                        });
-                    } else
-                    {
-                        $element.slideUp(800, function ()
-                        {
-                            jquery(ETR.UISettings.MainScrollAreaSelector).scrollTop(0);
-                        });
-                    }
-                }
-                if (ko.unwrap(valueAccessor()) === false)
-                {
-                    jquery('html').removeClass('has-dodged-content');
-                    if (ETR.UISettings.HasAnimations)
-                    {
-                        $element.addClass('dodged-out').removeClass('dodged-in').one(ETR.UISettings.AnimationEndEventName, function ()
-                        {
-                            jquery(this).removeClass('collapsed');
-                        });
-                    } else
-                    {
-                        jquery(element).slideDown(800);
-                    }
-                }
-            };
-            var subscription = valueAccessor().subscribe(handler);
-            if (ko.unwrap(valueAccessor()) === true)
-            {
-                handler();
-            }
-            ko.utils.domNodeDisposal.addDisposeCallback(element, function ()
-            {
-                jquery('html').removeClass('has-dodged-content');
-                subscription.dispose();
-                handler = null;
-            });
-        }
-    };
-
 
     ko.bindingHandlers.contextCatcher = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel)
@@ -391,10 +319,76 @@
         }
     };
 
-    ko.bindingHandlers.affix = {
+    ko.bindingHandlers.navTo = {
         init: function (element, valueAccessor)
         {
-            jquery(element).affix(ko.unwrap(valueAccessor()));
+            var goToFn = function (evt)
+            {
+                evt.preventDefault();
+                var hrefPattern = ko.unwrap(valueAccessor().href);
+                var paramsObj = ko.unwrap(valueAccessor().params);
+                var leanParams = ko.unwrap(valueAccessor().leanParams) !== false ? true : false;
+                ko.navigateSmoothly(hrefPattern, paramsObj, leanParams);
+            };
+            jquery(element).click(goToFn);
+            ko.utils.domNodeDisposal.addDisposeCallback(element, function ()
+            {
+                jquery(element).off('click', goToFn);
+                goToFn = null;
+            });
         }
     };
+    ko.bindingHandlers.dodgeBlock =
+    {
+        init: function (element, valueAccessor)
+        {
+            var handler = function ()
+            {
+                var $element = jquery(element);
+                if (ko.unwrap(valueAccessor()) === true)
+                {
+                    jquery('html').addClass('has-dodged-content');
+                    if (ETR.UISettings.HasAnimations)
+                    {
+                        $element.removeClass('dodged-out').addClass('dodged-in collapsed').one(ETR.UISettings.AnimationEndEventName, function ()
+                        {
+                            jquery(ETR.UISettings.MainScrollAreaSelector).scrollTop(0);
+                        });
+                    } else
+                    {
+                        $element.slideUp(800, function ()
+                        {
+                            jquery(ETR.UISettings.MainScrollAreaSelector).scrollTop(0);
+                        });
+                    }
+                }
+                if (ko.unwrap(valueAccessor()) === false)
+                {
+                    jquery('html').removeClass('has-dodged-content');
+                    if (ETR.UISettings.HasAnimations)
+                    {
+                        $element.addClass('dodged-out').removeClass('dodged-in').one(ETR.UISettings.AnimationEndEventName, function ()
+                        {
+                            jquery(this).removeClass('collapsed');
+                        });
+                    } else
+                    {
+                        jquery(element).slideDown(800);
+                    }
+                }
+            };
+            var subscription = valueAccessor().subscribe(handler);
+            if (ko.unwrap(valueAccessor()) === true)
+            {
+                handler();
+            }
+            ko.utils.domNodeDisposal.addDisposeCallback(element, function ()
+            {
+                jquery('html').removeClass('has-dodged-content');
+                subscription.dispose();
+                handler = null;
+            });
+        }
+    };
+    
 });
