@@ -276,7 +276,7 @@
             };
             def.extendjQuery = function ()
             {
-                jquery.fn.mobileFix = function (options)
+                jquery.fn.touchControlsFocusLostFix = function (options)
                 {
                     var $parent = jquery(this);
                     jquery(document)
