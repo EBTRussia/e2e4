@@ -159,33 +159,4 @@
             }
         }
     };
-
-    ko.bindingHandlers.percentsPlus = {
-        update: function (element, valueAccessor)
-        {
-            var value = ko.utils.unwrapObservable(valueAccessor());
-            if (value > 0)
-            {
-                jquery(element).attr('class', 'color-green');
-            } else if (value < 0)
-            {
-                jquery(element).attr('class', 'color-red');
-            }
-            jquery(element).html((value === null) ? '-' : value + '%');
-        }
-    };
-    ko.bindingHandlers.percentsMinus = {
-        update: function (element, valueAccessor)
-        {
-            var value = ko.utils.unwrapObservable(valueAccessor());
-            if (value > 0)
-            {
-                jquery(element).attr('class', 'color-red');
-            } else if (value < 0)
-            {
-                jquery(element).attr('class', 'color-green');
-            }
-            jquery(element).html((value === null) ? '-' : value + '%');
-        }
-    };
 });
