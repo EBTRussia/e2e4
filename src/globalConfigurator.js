@@ -8,32 +8,6 @@
 
             def.initKoValidation = function ()
             {
-                ko.validation.init({
-                    registerExtenders: true,
-                    messagesOnModified: true,
-                    errorsAsTitle: true,
-                    errorsAsTitleOnModified: true, // shows the error when hovering the input field (decorateElement must be true)
-                    messageTemplate: null,
-                    insertMessages: false,
-                    parseInputAttributes: false,
-                    writeInputAttributes: false,
-                    decorateInputElement: true,
-                    decorateElementOnModified: true,
-                    errorClass: null,
-                    errorElementClass: 'invalid', // class to decorate error element
-                    errorMessageClass: 'validation-message', // class to decorate error message
-                    allowHtmlMessages: false,
-                    grouping: {
-                        deep: false,
-                        observable: true,
-                        live: false
-                    },
-                    validate: {
-                        // throttle: 10
-                    }
-                }
-                );
-
                 ko.validation.rules.greaterThan = {
                     validator: function (val, than)
                     {
@@ -219,10 +193,6 @@
             };
             def.createTypeExtensions = function ()
             {
-                Date.prototype.toRequest = function ()
-                {
-                    return this.toISOString();
-                };
                 Object.inherit = function (subClass, superClass)
                 {
                     var f = function () { };
