@@ -119,7 +119,7 @@
                     Alt: 18,
                     Esc: 27,
                     ArrowUp: 38,
-                    ArrowDown: 40,
+                    ArrowDown: 40
                 };
                 ETR.FaultLevel =
                 {
@@ -218,14 +218,6 @@
                         s = s.replace(reg, arguments[i + 1]);
                     }
                     return s;
-                };
-
-                Array.prototype.initWith = function (data, targetCtor, p1, p2, p3, p4, p5)
-                {
-                    for (var i = 0; i < data.length; i++)
-                    {
-                        this.push(new targetCtor(data[i], p1, p2, p3, p4, p5));
-                    }
                 };
             };
             def.initUISettings = function ()
@@ -334,7 +326,10 @@
                 {
                     for (var indexer in cleanObj)
                     {
-                        delete fromObj[indexer];
+                        if (cleanObj.hasOwnProperty(indexer))
+                        {
+                            delete fromObj[indexer];
+                        }
                     }
                 };
                 jquery.getQueryString = function (path)
@@ -466,13 +461,16 @@
                         var paramsObj = {};
                         for (var indexer in params)
                         {
-                            var val = ko.unwrap(params[indexer]);
-                            if (val && val.toRequest)
+                            if (params.hasOwnProperty(indexer))
                             {
-                                paramsObj[indexer] = val.toRequest();
-                            } else
-                            {
-                                paramsObj[indexer] = val;
+                                var val = ko.unwrap(params[indexer]);
+                                if (val && val.toRequest)
+                                {
+                                    paramsObj[indexer] = val.toRequest();
+                                } else
+                                {
+                                    paramsObj[indexer] = val;
+                                }
                             }
                         }
                         emParams = jquery.extend(emParams, paramsObj);
@@ -597,9 +595,12 @@
             {
                 for (var m in def)
                 {
-                    if (m !== 'init' && jquery.isFunction(def[m]))
+                    if (def.hasOwnProperty(m))
                     {
-                        def[m]();
+                        if (m !== 'init' && jquery.isFunction(def[m]))
+                        {
+                            def[m]();
+                        }
                     }
                 }
             };
