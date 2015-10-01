@@ -20,7 +20,7 @@
                 {
                     completeTarget(jquery(element).inputmask('isComplete'));
                 }
-                if (valueTarget !== undefined)
+                if (valueTarget !== undefined && valueTarget !== null)
                 {
                     valueSubscription = valueTarget.subscribe(function ()
                     {
@@ -28,6 +28,7 @@
                         {
                             completeTarget(jquery(element).inputmask('isComplete'));
                         }
+                        jquery(element).triggerHandler("setvalue.inputmask");
                     });
                 }
             }
@@ -46,21 +47,18 @@
             var newMask = ko.unwrap(valueAccessor());
             var oldMask = jquery(element).inputmask('getmetadata');
             var completeTarget = allBindingsAccessor.get('completeTarget');
-
-            if (newMask === oldMask)
+            if (newMask !== oldMask)
             {
-                return;
-            }
-
-            jquery(element).inputmask('remove')
+                jquery(element).inputmask('remove')
                 .val(String.Empty)
                 .trigger('change');
-            if (newMask)
-            {
-                jquery(element).inputmask(newMask);
-                if (completeTarget !== undefined)
+                if (newMask)
                 {
-                    completeTarget(jquery(element).inputmask('isComplete'));
+                    jquery(element).inputmask(newMask);
+                    if (completeTarget !== undefined)
+                    {
+                        completeTarget(jquery(element).inputmask('isComplete'));
+                    }
                 }
             }
         }

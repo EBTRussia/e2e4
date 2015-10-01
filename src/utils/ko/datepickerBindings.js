@@ -73,7 +73,10 @@
             {
                 if (false === valM.isSame($el.datepicker('getDate')))
                 {
-                    $el.datepicker('setDate', valM.toDate());
+                    setTimeout(function ()
+                    {
+                        $el.datepicker('setDate', valM.toDate());
+                    });
                 }
             } else
             {
