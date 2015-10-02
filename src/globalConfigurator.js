@@ -78,23 +78,6 @@
                     }
                 };
 
-                ETR.CaseType =
-                {
-                    Nominative: 1,
-                    Genitive: 2,
-                    Dative: 3,
-                    Accusative: 4,
-                    Ablative: 5,
-                    Prepositional: 6
-                };
-
-                ETR.ReportingPeriodType =
-                {
-                    Unknown: 0,
-                    Decade: 1,
-                    Month: 2
-                };
-
                 ETR.ProgressState =
                 {
                     Initial: 0,
