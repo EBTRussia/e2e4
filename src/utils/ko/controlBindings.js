@@ -377,56 +377,62 @@
             });
         }
     };
-    ko.bindingHandlers.validationTooltip = {
-        init: function (element, valueAccessor, allBindingsAccessor)
+    ko.bindingHandlers.validationTooltip =
         {
-            var value = valueAccessor() === undefined ? allBindingsAccessor.get('value') : valueAccessor();
-            var tooltipOptions = ko.unwrap(allBindingsAccessor.get('tooltipOptions')) || {};
-            var displayMessageOn = allBindingsAccessor.get('displayMessageOn') || null;
-            if (ko.validation.utils.isValidatable(value))
+            init: function (element, valueAccessor, allBindingsAccessor)
             {
-                var settings = {
-                    delay: ETR.UISettings.ElementHoverDelay,
-                    trigger: ETR.UISettings.SupportsTouch ? 'hover focus' : 'hover',
-                    title: function ()
-                    {
-                        return value.error() || '';
-                    }
-                };
-                settings = jquery.extend(settings, tooltipOptions);
-                var tl = jquery(element).tooltip(settings);
-
-                if (settings.trigger === 'manual')
+                if (!ko.validation || ko.validation.utils || !ko.validation.utils.isValidatable)
                 {
-                    tl.tooltip('show');
+                    throw 'In order to use validationTooltip binding you must include knockout.validation library to your page';
                 }
 
-                var subscription = value.isValid.subscribe(function ()
+                var value = valueAccessor() === undefined ? allBindingsAccessor.get('value') : valueAccessor();
+                var tooltipOptions = ko.unwrap(allBindingsAccessor.get('tooltipOptions')) || {};
+                var displayMessageOn = allBindingsAccessor.get('displayMessageOn') || null;
+                if (ko.validation.utils.isValidatable(value))
                 {
-                    tl.tooltip(value.isValid() ? 'hide' : 'show');
-                });
+                    var settings = {
+                        delay: ETR.UISettings.ElementHoverDelay,
+                        trigger: ETR.UISettings.SupportsTouch ? 'hover focus' : 'hover',
+                        title: function ()
+                        {
+                            return value.error() || '';
+                        }
+                    };
+                    settings = jquery.extend(settings, tooltipOptions);
+                    var tl = jquery(element).tooltip(settings);
 
-                var displaySubscription = null;
-                if (displayMessageOn)
-                {
-                    displaySubscription = displayMessageOn.subscribe(function ()
+                    if (settings.trigger === 'manual')
+                    {
+                        tl.tooltip('show');
+                    }
+
+                    var subscription = value.isValid.subscribe(function ()
                     {
                         tl.tooltip(value.isValid() ? 'hide' : 'show');
                     });
-                }
 
-                ko.utils.domNodeDisposal.addDisposeCallback(element, function ()
-                {
-                    if (displaySubscription !== null)
+                    var displaySubscription = null;
+                    if (displayMessageOn)
                     {
-                        displaySubscription.dispose();
+                        displaySubscription = displayMessageOn.subscribe(function ()
+                        {
+                            tl.tooltip(value.isValid() ? 'hide' : 'show');
+                        });
                     }
-                    subscription.dispose();
-                    jquery(element).tooltip('destroy');
-                });
+
+                    ko.utils.domNodeDisposal.addDisposeCallback(element, function ()
+                    {
+                        if (displaySubscription !== null)
+                        {
+                            displaySubscription.dispose();
+                        }
+                        subscription.dispose();
+                        jquery(element).tooltip('destroy');
+                    });
+                }
             }
-        }
-    };
+        };
 
     ko.bindingHandlers.bsprogress =
     {

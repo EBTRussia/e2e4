@@ -1,4 +1,4 @@
-﻿define(['jquery', 'ko', 'underscore', 'notificationService'], function (jquery, ko, _, notificationService)
+﻿define(['jquery', 'ko', 'underscore', 'notificationService', 'koValidation'], function (jquery, ko, _, notificationService)
 {
     'use strict';
     var modelStateExtender = {

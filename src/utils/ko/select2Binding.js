@@ -26,7 +26,7 @@
             }
 
             var valBind = allBindingsAccessor.get('value');
-            if (ko.validation.utils.isValidatable(valBind))
+            if (ko.validation && ko.validation.utils && ko.validation.utils.isValidatable && ko.validation.utils.isValidatable(valBind))
             {
                 validationSubscription = ko.computed(function ()
                 {
@@ -72,7 +72,7 @@
         {
             var options = allBindingsAccessor.get('select2Options') || {};
             var valBind = allBindingsAccessor.get('value');
-            
+
             var $el = jquery(element);
             if (valueAccessor())
             {

@@ -25,7 +25,7 @@
             var validationSubscription = null;
 
             var valBind = valueAccessor();
-            if (ko.validation.utils.isValidatable(valBind))
+            if (ko.validation && ko.validation.utils && ko.validation.utils.isValidatable && ko.validation.utils.isValidatable(valBind))
             {
                 validationSubscription = ko.computed(function ()
                 {
