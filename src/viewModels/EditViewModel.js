@@ -32,7 +32,7 @@
                 {
                     for (var i = 0; i < this.paramsToExclude.length; i++)
                     {
-                        delete currentParams[this.paramsToExclude[i] + String.Empty];
+                        delete currentParams[this.paramsToExclude[i] + ETR.EmptyString];
                     }
                 }
                 delete currentParams.referrer;
@@ -41,7 +41,7 @@
                 //else navigating to default route
             else
             {
-                router.navigate(String.Empty);
+                router.navigate(ETR.EmptyString);
             }
         }
     });

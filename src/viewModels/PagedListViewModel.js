@@ -31,7 +31,7 @@
             read: this.pageNumberInternal,
             write: function (value)
             {
-                value = (value + String.Empty).replace(/[^0-9\.]/g, '');
+                value = (value + ETR.EmptyString).replace(/[^0-9\.]/g, '');
                 var pageNumber = value * 1 ? value * 1 : 1;
 
                 if (pageNumber > this.pageCount())
@@ -52,7 +52,7 @@
             read: this.pageSizeInternal,
             write: function (value)
             {
-                value = (value + String.Empty).replace(/[^0-9\.]/g, '');
+                value = (value + ETR.EmptyString).replace(/[^0-9\.]/g, '');
                 var pageSize = value * 1 ? value * 1 : this.defaultPageSize;
 
 
@@ -114,7 +114,7 @@
         this.totalRecordsText = ko.computed({
             read: function ()
             {
-                return String.format(ETR.LocalResources.CommonPagedListTotalRecords, this.displayFrom(), this.displayTo(), this.totalRecords());
+                return ETR.formatString(ETR.LocalResources.CommonPagedListTotalRecords, this.displayFrom(), this.displayTo(), this.totalRecords());
             }
         }, this);
 

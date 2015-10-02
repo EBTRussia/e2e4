@@ -16,7 +16,7 @@
                 case ETR.ProgressState.Fail:
                     return 'status status-fail';
                 default:
-                    return String.Empty;
+                    return ETR.EmptyString;
             }
         }, this);
 

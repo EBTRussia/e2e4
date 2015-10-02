@@ -107,7 +107,7 @@
                             var result = false;
                             _.each(resultData.faultDetails, function (item)
                             {
-                                if (item.key !== null && item.key !== undefined && item.key !== String.Empty)
+                                if (item.key !== null && item.key !== undefined && item.key !== ETR.EmptyString)
                                 {
                                     var castedKey = item.key + '';
                                     var nKey = castedKey.substring(castedKey.lastIndexOf('.') + 1);

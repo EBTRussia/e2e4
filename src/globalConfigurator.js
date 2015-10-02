@@ -22,8 +22,8 @@
                     }
                     return subClass;
                 };
-                String.Empty = '';
-                String.format = function ()
+                ETR.EmptyString = '';
+                ETR.formatString = function ()
                 {
                     var s = arguments[0];
                     for (var i = 0; i < arguments.length - 1; i++)

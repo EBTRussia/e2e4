@@ -51,7 +51,7 @@
                     if (zeroesCount > 0 && txt.length < zeroesCount)
                     {
                         var signValue = txt.charAt(0) === '-' ? '-' : '';
-                        var zeroes = String.Empty;
+                        var zeroes = ETR.EmptyString;
                         txt = txt.replace('-', '');
                         while (signValue.length + txt.length + zeroes.length < zeroesCount)
                         {

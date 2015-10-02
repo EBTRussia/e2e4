@@ -19,7 +19,7 @@
         this.totalRecordsText = ko.computed({
             read: function ()
             {
-                return String.format(ETR.LocalResources.CommonListTotalRecords, this.loadedRecords(), this.totalRecords());
+                return ETR.formatString(ETR.LocalResources.CommonListTotalRecords, this.loadedRecords(), this.totalRecords());
             }
         }, this);
 

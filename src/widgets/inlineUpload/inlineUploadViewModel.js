@@ -6,7 +6,7 @@
     {
         this.uploadSettings = settings.uploadSettings || {};
         this.uploadCallbacks = settings.uploadCallbacks || {};
-        this.uploadUrl = settings.uploadUrl || String.Empty;
+        this.uploadUrl = settings.uploadUrl || ETR.EmptyString;
     };
     ctor.prototype.detached = function ()
     {

@@ -3,9 +3,9 @@
     'use strict';
     var actionViewModelDef = function (settings)
     {
-        this.text = settings.text || String.Empty;
-        this.title = settings.title || String.Empty;
-        this.cls = settings.cls || String.Empty;
+        this.text = settings.text || ETR.EmptyString;
+        this.title = settings.title || ETR.EmptyString;
+        this.cls = settings.cls || ETR.EmptyString;
         this.action = settings.action || jquery.noop;
         this.active = settings.active || false;
     };

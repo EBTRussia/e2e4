@@ -50,7 +50,7 @@
             if (newMask !== oldMask)
             {
                 jquery(element).inputmask('remove')
-                .val(String.Empty)
+                .val(ETR.EmptyString)
                 .trigger('change');
                 if (newMask)
                 {

@@ -19,7 +19,7 @@
             read: this.rowCountInternal,
             write: function (value)
             {
-                value = (value + String.Empty).replace(/[^0-9\.]/g, '');
+                value = (value + ETR.EmptyString).replace(/[^0-9\.]/g, '');
                 var rowCount = value * 1 ? value * 1 : this.defaultRowCount;
                 if (rowCount < this.minRowCount)
                 {
@@ -61,7 +61,7 @@
         this.totalRecordsText = ko.computed({
             read: function ()
             {
-                return String.format(ETR.LocalResources.CommonUserMessageTotalRecords, this.skip(), this.totalRecords());
+                return ETR.formatString(ETR.LocalResources.CommonUserMessageTotalRecords, this.skip(), this.totalRecords());
             }
         }, this);
 
