@@ -8,12 +8,14 @@ requirejs.config({
         }
     },
     paths: {
-        'text': 'libs/requirejs-text/text',
-        'durandal': 'libs/durandal/js',
-        'plugins': 'libs/durandal/js/plugins',
-        'ko': 'libs/knockout.js/knockout',
-        'jquery': 'libs/jquery/dist/jquery',
-        'bootstrap': 'libs/bootstrap/dist/js/bootstrap',
+        text: 'libs/requirejs-text/text',
+        durandal: 'libs/durandal/js',
+        plugins: 'libs/durandal/js/plugins',
+        ko: 'libs/knockout.js/knockout',
+        jquery: 'libs/jquery/dist/jquery',
+        bootstrap: 'libs/bootstrap/dist/js/bootstrap',
+        numbro: 'libs/numbro/numbro',
+        numberFormatBinding: 'src/utils/ko/numberFormatBinding'
     },
     shim: {
         'demo/shell': { deps: ['text!demo/shell.html'] },

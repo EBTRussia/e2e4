@@ -25,7 +25,8 @@
     "requirejs-text": "~2.0.12",
     "knockout.js": "~3.1.0",
     "durandal": "~2.1.0",
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "numbro": "~1.5.1"
   },
   "resolutions": {
     "requirejs": "~2.1.15",

@@ -1,4 +1,4 @@
-﻿define(['plugins/router'],
+﻿define(['plugins/router', 'numberFormatBinding'],
     function (router)
     {
         'use strict';

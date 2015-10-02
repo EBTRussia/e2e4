@@ -74,7 +74,7 @@ module.exports = function (grunt)
         watch:
         {
             'src': {
-                files: ['src/**/*.*'],
+                files: ['src/**/*.*', 'demo/**/*.*'],
                 tasks: ['requirejs:demo']
             },
             'gruntfile': {
