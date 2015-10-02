@@ -28,7 +28,7 @@
                         {
                             completeTarget(jquery(element).inputmask('isComplete'));
                         }
-                        jquery(element).triggerHandler("setvalue.inputmask");
+                        jquery(element).triggerHandler('setvalue.inputmask');
                     });
                 }
             }

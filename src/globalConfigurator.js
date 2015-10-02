@@ -1,5 +1,5 @@
-﻿define(['plugins/router', 'bootstrap', 'jquery', 'ko'],
-    function (router, bootstrap, jquery, ko)
+﻿define(['plugins/router', 'bootstrap', 'jquery'],
+    function (router, bootstrap, jquery)
     {
         'use strict';
         return (function ()
