@@ -46,7 +46,13 @@
                 }
                 else
                 {
-                    jquery.except(params, vmState.lastRequestState);
+                    for (var indexer in vmState.lastRequestState)
+                    {
+                        if (vmState.lastRequestState.hasOwnProperty(indexer))
+                        {
+                            delete params[indexer];
+                        }
+                    }
                     var cleanPath = router.activeInstruction().fragment + '?' + jquery.param(params);
                     router.navigate(cleanPath, { replace: true, trigger: false });
                 }

@@ -1,4 +1,4 @@
-﻿define(['ko', 'jquery', 'underscore', 'PagedListViewModel', 'BufferedListViewModel', 'ListViewModel'], function (ko, jquery, _, pagedListViewModelDef, bufferedListViewModelDef, listViewModelDef)
+﻿define(['ko', 'jquery', 'underscore', 'PagedListViewModel', 'BufferedListViewModel', 'ListViewModel', 'jQueryExtender'], function (ko, jquery, _, pagedListViewModelDef, bufferedListViewModelDef, listViewModelDef)
 {
     'use strict';
     ko.bindingHandlers.sort = {
@@ -320,6 +320,43 @@
     };
 
     ko.bindingHandlers.navTo = {
+        mixParamsAndNavigate: function (href, params, leanParams)
+        {
+            var emParams = jquery.parseQueryString(jquery.getQueryString(href));
+            if (params)
+            {
+                var paramsObj = {};
+                for (var indexer in params)
+                {
+                    if (params.hasOwnProperty(indexer))
+                    {
+                        var val = ko.unwrap(params[indexer]);
+                        if (val && val.toRequest)
+                        {
+                            paramsObj[indexer] = val.toRequest();
+                        } else
+                        {
+                            paramsObj[indexer] = val;
+                        }
+                    }
+                }
+                emParams = jquery.extend(emParams, paramsObj);
+            }
+            if (leanParams)
+            {
+                var currentParams = jquery.parseQueryString(jquery.getQueryString(window.location.href));
+                emParams = jquery.extend(currentParams, emParams);
+            }
+
+            href = href || window.location.href;
+            var matches = href.match(/^[^#]*(#.+)$/);
+            var hash = matches ? matches[1] : '';
+            var cleanHash = hash ? hash.replace(/\?([^#]*)?$/, '') : '';
+
+            href = cleanHash + '?' + jquery.param(emParams);
+            window.location.href = href;
+
+        },
         init: function (element, valueAccessor)
         {
             var goToFn = function (evt)
@@ -328,7 +365,7 @@
                 var hrefPattern = ko.unwrap(valueAccessor().href);
                 var paramsObj = ko.unwrap(valueAccessor().params);
                 var leanParams = ko.unwrap(valueAccessor().leanParams) !== false ? true : false;
-                ko.navigateSmoothly(hrefPattern, paramsObj, leanParams);
+                ko.bindingHandlers.navTo.mixParamsAndNavigate(hrefPattern, paramsObj, leanParams);
             };
             jquery(element).click(goToFn);
             ko.utils.domNodeDisposal.addDisposeCallback(element, function ()
@@ -390,5 +427,5 @@
             });
         }
     };
-    
+
 });

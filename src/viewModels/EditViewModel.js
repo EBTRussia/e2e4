@@ -1,4 +1,4 @@
-﻿define(['jquery', 'underscore', 'BaseViewModel', 'plugins/router'], function (jquery, _, baseViewModelDef, router)
+﻿define(['jquery', 'underscore', 'BaseViewModel', 'plugins/router', 'jQueryExtender'], function (jquery, _, baseViewModelDef, router)
 {
     'use strict';
     var editViewModelDef = function (title, paramsToExclude)
