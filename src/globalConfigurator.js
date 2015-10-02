@@ -34,8 +34,6 @@
                     return s;
                 };
 
-
-
                 ETR.KeyCodes = {
                     Enter: 13,
                     Shift: 16,

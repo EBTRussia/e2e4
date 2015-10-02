@@ -2,6 +2,15 @@
 This file in the main entry point for defining grunt tasks and using grunt plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkID=513275&clcid=0x409
 */
+
+
+var excludeModules = [];
+var includeModules = [
+    'libs/requirejs/require',
+    'demo/app',
+    'demo/shell'
+];
+
 module.exports = function (grunt)
 {
     'use strict';
@@ -41,11 +50,39 @@ module.exports = function (grunt)
         },
         clean: ['build'],
         jshint: {
-            all: ['Gruntfile.js', 'src/**/*.js'],
+            all: ['gruntfile.js', 'src/**/*.js'],
             options: {
                 jshintrc: true
             }
+        },
+        requirejs: {
+            'demo': {
+                options: {
+                    optimize: 'none',
+                    baseUrl: '',
+                    mainConfigFile: 'demo/app.js',
+                    out: 'build/demo.js',
+                    inlineText: true,
+                    pragmas: {
+                        build: true
+                    },
+                    include: includeModules,
+                    exclude: excludeModules
+                }
+            }
+        },
+        watch:
+        {
+            'src': {
+                files: ['src/**/*.*'],
+                tasks: ['requirejs:demo']
+            },
+            'gruntfile': {
+                files: ['*.*'],
+                tasks: ['default']
+            }
         }
+
     });
 
 
@@ -53,6 +90,9 @@ module.exports = function (grunt)
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
+
     grunt.log.writeln('run build');
-    grunt.registerTask('default', ['clean', 'bower', 'replace', 'jshint']);
+    grunt.registerTask('default', ['clean', 'bower', 'replace', 'jshint', 'requirejs', 'watch']);
 };
