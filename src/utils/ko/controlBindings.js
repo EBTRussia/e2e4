@@ -381,7 +381,7 @@
         {
             init: function (element, valueAccessor, allBindingsAccessor)
             {
-                if (!ko.validation || ko.validation.utils || !ko.validation.utils.isValidatable)
+                if (!ko.validation || !ko.validation.utils || !ko.validation.utils.isValidatable)
                 {
                     throw 'In order to use validationTooltip binding you must include knockout.validation library to your page';
                 }
