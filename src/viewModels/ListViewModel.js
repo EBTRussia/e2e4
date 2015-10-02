@@ -125,7 +125,7 @@
 
     };
 
-    _.extend(Object.inherit(listViewModelDef, baseViewModelDef).prototype,
+    _.extend(ETR.setSuperclass(listViewModelDef, baseViewModelDef).prototype,
     {
         selectAll: function ()
         {

@@ -15,7 +15,7 @@
         });
 
     };
-    _.extend(Object.inherit(editViewModelDef, baseViewModelDef).prototype, {
+    _.extend(ETR.setSuperclass(editViewModelDef, baseViewModelDef).prototype, {
         navToAppropriateView: function ()
         {
             //if we had multiple history items - navigating by history

@@ -1,12 +1,41 @@
-﻿define(['plugins/router', 'bootstrap', 'jquery'],
-    function (router, bootstrap, jquery)
+﻿define(['plugins/router'],
+    function (router)
     {
         'use strict';
-        return (function ()
-        {
-            var def = {};
-            def.createEnumerations = function ()
+        return {
+            init: function ()
             {
+                ETR.setSuperclass = function (subClass, superClass)
+                {
+                    var f = function ()
+                    {
+                    };
+                    f.prototype = superClass.prototype;
+                    subClass.prototype = new f();
+
+                    subClass.prototype.constructor = subClass;
+                    subClass.superclass = superClass.prototype;
+
+                    if (superClass.prototype.constructor === Object.prototype.constructor)
+                    {
+                        superClass.prototype.constructor = superClass;
+                    }
+                    return subClass;
+                };
+                String.Empty = '';
+                String.format = function ()
+                {
+                    var s = arguments[0];
+                    for (var i = 0; i < arguments.length - 1; i++)
+                    {
+                        var reg = new RegExp('\\{' + i + '\\}', 'gm');
+                        s = s.replace(reg, arguments[i + 1]);
+                    }
+                    return s;
+                };
+
+
+
                 ETR.KeyCodes = {
                     Enter: 13,
                     Shift: 16,
@@ -24,15 +53,15 @@
                     Error: 3
                 };
                 ETR.HttpStatusCode =
-                    {
-                        OK: 200,
-                        ImATeapot: 418,
-                        BadRequest: 400,
-                        Unauthorized: 401,
-                        Forbidden: 403,
-                        NotFound: 404,
-                        Conflict: 409
-                    };
+                {
+                    OK: 200,
+                    ImATeapot: 418,
+                    BadRequest: 400,
+                    Unauthorized: 401,
+                    Forbidden: 403,
+                    NotFound: 404,
+                    Conflict: 409
+                };
 
                 ETR.HttpVerb =
                 {
@@ -85,38 +114,8 @@
                     Fail: 5,
                     Locked: 6
                 };
-            };
-            def.createTypeExtensions = function ()
-            {
-                Object.inherit = function (subClass, superClass)
-                {
-                    var f = function () { };
-                    f.prototype = superClass.prototype;
-                    subClass.prototype = new f();
 
-                    subClass.prototype.constructor = subClass;
-                    subClass.superclass = superClass.prototype;
 
-                    if (superClass.prototype.constructor === Object.prototype.constructor)
-                    {
-                        superClass.prototype.constructor = superClass;
-                    }
-                    return subClass;
-                };
-                String.Empty = '';
-                String.format = function ()
-                {
-                    var s = arguments[0];
-                    for (var i = 0; i < arguments.length - 1; i++)
-                    {
-                        var reg = new RegExp('\\{' + i + '\\}', 'gm');
-                        s = s.replace(reg, arguments[i + 1]);
-                    }
-                    return s;
-                };
-            };
-            def.initUISettings = function ()
-            {
                 ETR.UISettings = {
                     ProgressDelayInterval: 500,
                     MinimalUIDelayInterval: 1500,
@@ -140,7 +139,7 @@
                 var animationProp = 'animation';
                 var animationEvents = {
                     'animation': 'animationend',
-                    'OAnimation': 'oanimationend',  // oTransitionEnd in very old Opera
+                    'OAnimation': 'oanimationend', // oTransitionEnd in very old Opera
                     'MozAnimation': 'animationend',
                     'WebkitAnimation': 'webkitAnimationEnd',
                     'webkitAnimation': 'webkitAnimationEnd'
@@ -151,8 +150,7 @@
                 {
                     ETR.UISettings.HasAnimations = true;
                     ETR.UISettings.AnimationEndEventName = animationEvents[animationProp];
-                }
-                else
+                } else
                 {
                     // Tests for vendor specific prop
                     var v = ['Moz', 'webkit', 'Webkit', 'Khtml', 'O', 'ms'];
@@ -168,20 +166,6 @@
                     }
                 }
                 ETR.UISettings.SupportsTouch = ('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch || navigator.msMaxTouchPoints;
-            };
-            def.init = function ()
-            {
-                for (var m in def)
-                {
-                    if (def.hasOwnProperty(m))
-                    {
-                        if (m !== 'init' && jquery.isFunction(def[m]))
-                        {
-                            def[m]();
-                        }
-                    }
-                }
-            };
-            return def;
-        })();
+            }
+        };
     });

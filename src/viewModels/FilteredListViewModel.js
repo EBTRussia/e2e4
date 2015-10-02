@@ -24,6 +24,6 @@
             this.resetFilterToDefault();
         });
     };
-    Object.inherit(filteredListViewModelDef, listViewModelDef);
+    ETR.setSuperclass(filteredListViewModelDef, listViewModelDef);
     return filteredListViewModelDef;
 });

@@ -163,7 +163,7 @@
             this.pageSizeInternal = null;
         });
     };
-    _.extend(Object.inherit(pagedListViewModelDef, filteredListViewModelDef).prototype,
+    _.extend(ETR.setSuperclass(pagedListViewModelDef, filteredListViewModelDef).prototype,
         {
             goToFirstPage: function ()
             {

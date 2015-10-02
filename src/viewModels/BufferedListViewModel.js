@@ -104,6 +104,6 @@
             this.rowCount.dispose();
         });
     };
-    Object.inherit(bufferedListViewModelDef, filteredListViewModelDef);
+    ETR.setSuperclass(bufferedListViewModelDef, filteredListViewModelDef);
     return bufferedListViewModelDef;
 });
