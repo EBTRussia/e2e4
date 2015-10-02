@@ -1,4 +1,4 @@
-﻿define(['ko', 'underscore'], function (ko, _)
+﻿define(['ko', 'underscore', 'koExtender'], function (ko, _)
 {
     'use strict';
     var baseViewModelDef = function (title)
