@@ -5,6 +5,7 @@
         return {
             init: function ()
             {
+                window.ETR = window.ETR || {};
                 (function initUtilities()
                 {
                     ETR.setSuperclass = function (subClass, superClass)

@@ -20,22 +20,7 @@
 			});
     		return this;
     	};
-    	jquery.clearSelection = function ()
-    	{
-    		try
-    		{
-    			if (window.getSelection)
-    			{
-    				window.getSelection().removeAllRanges();
-    			} else if (document.selection)
-    			{
-    				document.selection.empty();
-    			}
-    		} catch (e)
-    		{
-
-    		}
-    	};
+    	
     	
     	jquery.getQueryString = function (path)
     	{

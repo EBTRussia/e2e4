@@ -123,6 +123,22 @@
     };
 
     ko.bindingHandlers.selectedRow = {
+        clearSelection: function ()
+        {
+            try
+            {
+                if (window.getSelection)
+                {
+                    window.getSelection().removeAllRanges();
+                } else if (document.selection)
+                {
+                    document.selection.empty();
+                }
+            } catch (e)
+            {
+
+            }
+        },
         update: function (element, valueAccessor, allBindingsAccessor, viewModel)
         {
             if (viewModel.selected() === true)
@@ -196,7 +212,7 @@
                         listViewModel.toggleSelection(viewModel, true);
                         setTimeout(function ()
                         {
-                            jquery.clearSelection();
+                            ko.bindingHandlers.selectedRow.clearSelection();
                         }, 0);
                         return;
                     }
@@ -219,7 +235,7 @@
                     }
                     setTimeout(function ()
                     {
-                        jquery.clearSelection();
+                        ko.bindingHandlers.selectedRow.clearSelection();
                     }, 0);
                 }
             };
