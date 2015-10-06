@@ -71,7 +71,7 @@ module.exports = function (grunt)
                     },
                     include: includeModules,
                     exclude: excludeModules,
-                    locale: 'en-us'
+                    locale: 'ru-ru'
                 }
             }
         },

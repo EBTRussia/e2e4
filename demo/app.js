@@ -23,6 +23,7 @@ requirejs.config({
         jquery: 'libs/jquery/dist/jquery',
         bootstrap: 'libs/bootstrap/dist/js/bootstrap',
         numbro: 'libs/numbro/numbro',
+        'numbro.ru': 'libs/numbro/languages/ru-RU',
         underscore: 'libs/underscore/underscore',
         i18n: 'libs/requirejs-i18n/i18n',
 
