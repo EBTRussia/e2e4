@@ -1,5 +1,5 @@
 ﻿define({
     "root": true,
-    "en-us": true
+    "ru-ru": true
 });
 

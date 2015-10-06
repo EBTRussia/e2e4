@@ -47,7 +47,7 @@ require(['jquery', 'src/globalConfigurator'],
     {
         'use strict';
         globalConfigurator.init();
-        require(['durandal/system', 'durandal/binder', 'durandal/app'], function (system, viewModelBinder, app)
+        require(['durandal/system', 'durandal/binder', 'durandal/app', 'WcfDispatcher'], function (system, viewModelBinder, app)
         {
             //>>excludeStart("build", pragmas.build);
             system.debug(true);
