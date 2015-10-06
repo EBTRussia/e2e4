@@ -1,4 +1,4 @@
-﻿define(['ko', 'jquery', 'underscore', 'etrLocales'], function (ko, jquery, _)
+﻿define(['ko', 'jquery', 'underscore'], function (ko, jquery, _)
 {
     'use strict';
     ko.bindingHandlers.option = {
