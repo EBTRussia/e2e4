@@ -1,4 +1,4 @@
-﻿define(['ko', 'jquery', 'underscore', 'FilteredListViewModel'], function (ko, jquery, _, filteredListViewModelDef)
+﻿define(['ko', 'jquery', 'underscore', 'FilteredListViewModel', 'i18n!nls/localResources'], function (ko, jquery, _, filteredListViewModelDef, localResources)
 {
     'use strict';
     var bufferedListViewModelDef = function (title)
@@ -61,7 +61,7 @@
         this.totalRecordsText = ko.computed({
             read: function ()
             {
-                return ETR.formatString(ETR.LocalResources.CommonUserMessageTotalRecords, this.skip(), this.totalRecords());
+                return ETR.formatString(localResources.CommonUserMessageTotalRecords, this.skip(), this.totalRecords());
             }
         }, this);
 

@@ -1,4 +1,4 @@
-﻿define(['ko', 'jquery', 'underscore', 'FilteredListViewModel'], function (ko, jquery, _, filteredListViewModelDef)
+﻿define(['ko', 'jquery', 'underscore', 'FilteredListViewModel', 'i18n!nls/localResources'], function (ko, jquery, _, filteredListViewModelDef, localResources)
 {
     'use strict';
     var pagedListViewModelDef = function (title)
@@ -114,7 +114,7 @@
         this.totalRecordsText = ko.computed({
             read: function ()
             {
-                return ETR.formatString(ETR.LocalResources.CommonPagedListTotalRecords, this.displayFrom(), this.displayTo(), this.totalRecords());
+                return ETR.formatString(localResources.CommonPagedListTotalRecords, this.displayFrom(), this.displayTo(), this.totalRecords());
             }
         }, this);
 

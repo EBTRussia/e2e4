@@ -1,4 +1,4 @@
-﻿define(['ko', 'jquery'], function (ko, jquery)
+﻿define(['ko', 'jquery', 'i18n!nls/localResources'], function (ko, jquery, localResources)
 {
     'use strict';
     ko.bindingHandlers.booleanText = {
@@ -8,11 +8,11 @@
             var text = '';
             if (val === true)
             {
-                text = ETR.LocalResources.CommonUserMessageYes;
+                text = localResources.CommonUserMessageYes;
             }
             else if (val === false)
             {
-                text = ETR.LocalResources.CommonUserMessageNo;
+                text = localResources.CommonUserMessageNo;
             }
             jquery(element).text(text);
         }

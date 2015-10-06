@@ -37,7 +37,6 @@
                         return s;
                     };
                 })();
-
                 (function initEnumerations()
                 {
                     ETR.KeyCodes = {
@@ -102,7 +101,6 @@
                         Locked: 6
                     };
                 })();
-
                 (function initUISettings()
                 {
                     ETR.UISettings = {

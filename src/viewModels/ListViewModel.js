@@ -1,4 +1,4 @@
-﻿define(['jquery', 'underscore', 'ko', 'BaseViewModel', 'SelectionExtender', 'stateManager', 'WcfDispatcher'], function (jquery, _, ko, baseViewModelDef, selectionExtender, stateManager, wcfDispatcherDef)
+﻿define(['jquery', 'underscore', 'ko', 'BaseViewModel', 'SelectionExtender', 'stateManager', 'WcfDispatcher', 'i18n!nls/localResources'], function (jquery, _, ko, baseViewModelDef, selectionExtender, stateManager, wcfDispatcherDef, localResources)
 {
     'use strict';
     var listViewModelDef = function (title)
@@ -19,7 +19,7 @@
         this.totalRecordsText = ko.computed({
             read: function ()
             {
-                return ETR.formatString(ETR.LocalResources.CommonListTotalRecords, this.loadedRecords(), this.totalRecords());
+                return ETR.formatString(localResources.CommonListTotalRecords, this.loadedRecords(), this.totalRecords());
             }
         }, this);
 
@@ -92,7 +92,7 @@
 
         this.loadButtonText = ko.computed(function ()
         {
-            return this.ready() ? ETR.LocalResources.CommonUserMessageShowData : ETR.LocalResources.CommonUserMessageStopLoading;
+            return this.ready() ? localResources.CommonUserMessageShowData : localResources.CommonUserMessageStopLoading;
         }, this);
 
         selectionExtender.apply.call(this, this.items);

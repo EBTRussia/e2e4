@@ -1,5 +1,4 @@
-﻿window.ETR = window.ETR || {};
-window.ETR.LocalResources = {
+﻿define({
     CommonDecadeNameGenitiveFirst: 'First ten-day of',
     CommonDecadeNameGenitiveSecond: 'Second ten-day of',
     CommonDecadeNameGenitiveThird: 'Third ten-day of',
@@ -29,4 +28,4 @@ window.ETR.LocalResources = {
     CommonUserMessageNoData: 'There are no data found',
     CommonUserMessageShowData: 'Show',
     CommonUserMessageStopLoading: 'Press to stop data loading'
-};
+});

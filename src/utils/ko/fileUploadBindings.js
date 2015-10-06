@@ -1,4 +1,4 @@
-﻿define(['ko', 'jquery', 'WcfDispatcher', 'notificationService', 'jquery.iframe-transport', 'jquery.fileupload-ui'], function (ko, jquery, wcfDispatcher, notificationService)
+﻿define(['ko', 'jquery', 'WcfDispatcher', 'notificationService', 'i18n!nls/localResources', 'jquery.iframe-transport', 'jquery.fileupload-ui'], function (ko, jquery, wcfDispatcher, notificationService, localResources)
 {
     'use strict';
     ko.bindingHandlers.lazyUpload = {
@@ -130,11 +130,11 @@
             {
                 if (data.jqXHR.status === ETR.HttpStatusCode.OK)
                 {
-                    notificationService.error(ETR.LocalResources.CommonUserMessageErrorOnFileUpload);
+                    notificationService.error(localResources.CommonUserMessageErrorOnFileUpload);
                 }
                 else if (data.jqXHR.status === ETR.HttpStatusCode.Conflict)
                 {
-                    notificationService.error(ETR.LocalResources.CommonUserMessageDuplicateUploadFileName);
+                    notificationService.error(localResources.CommonUserMessageDuplicateUploadFileName);
                 }
                 else
                 {

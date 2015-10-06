@@ -2,6 +2,13 @@
 
 requirejs.config({
     baseUrl: '',
+    config: {
+        //Set the config for the i18n
+        //module ID
+        i18n: {
+            locale: 'ru-ru'
+        }
+    },
     map: {
         '*': {
             'knockout': 'ko'
@@ -11,11 +18,21 @@ requirejs.config({
         text: 'libs/requirejs-text/text',
         durandal: 'libs/durandal/js',
         plugins: 'libs/durandal/js/plugins',
+
         ko: 'libs/knockout.js/knockout',
         jquery: 'libs/jquery/dist/jquery',
         bootstrap: 'libs/bootstrap/dist/js/bootstrap',
         numbro: 'libs/numbro/numbro',
-        numberFormatBinding: 'src/utils/ko/numberFormatBinding'
+        underscore: 'libs/underscore/underscore',
+        i18n: 'libs/requirejs-i18n/i18n',
+
+
+        numberFormatBinding: 'src/utils/ko/numberFormatBinding',
+        WcfDispatcher: 'src/utils/WcfDispatcher',
+        statusTracker: 'src/utils/statusTracker',
+        StatusViewModel: 'src/viewModels/StatusViewModel',
+        notificationService: 'src/utils/toastrNotificationService',
+        toastr: 'libs/toastr/toastr'
     },
     shim: {
         'demo/shell': { deps: ['text!demo/shell.html'] },

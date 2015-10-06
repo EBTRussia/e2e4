@@ -1,15 +1,15 @@
-﻿define(['underscore', 'ko', 'jquery', 'BufferedListViewModel', 'PagedListViewModel', 'ListViewModel'],
-    function (_, ko, jquery, bufferedListViewModelDef, pagedListViewModelDef, listViewModelDef)
+﻿define(['underscore', 'ko', 'jquery', 'BufferedListViewModel', 'PagedListViewModel', 'ListViewModel', 'i18n!nls/localResources'],
+    function (_, ko, jquery, bufferedListViewModelDef, pagedListViewModelDef, listViewModelDef, localResources)
     {
         'use strict';
         var datalistFooterViewModelDef = function () { };
         _.extend(datalistFooterViewModelDef.prototype, {
             activate: function (settings)
             {
-                this.noDataText = settings.noDataText || ETR.LocalResources.CommonUserMessageNoData;
-                this.cancelStatusText = settings.cancelStatusText || ETR.LocalResources.CommonUserMessageCancelledListMessage;
-                this.failedStatusText = settings.failedStatusText || ETR.LocalResources.CommonUserMessageFailedListMessage;
-                this.initialStatusText = settings.initialStatusText || ETR.LocalResources.CommonUserMessageInitialListMessage;
+                this.noDataText = settings.noDataText || localResources.CommonUserMessageNoData;
+                this.cancelStatusText = settings.cancelStatusText || localResources.CommonUserMessageCancelledListMessage;
+                this.failedStatusText = settings.failedStatusText || localResources.CommonUserMessageFailedListMessage;
+                this.initialStatusText = settings.initialStatusText || localResources.CommonUserMessageInitialListMessage;
                 this.displayPagingControls = jquery(settings.parent).attr('data-bind').indexOf('infinite') === -1;
 
                 this.isSimpleList = false;

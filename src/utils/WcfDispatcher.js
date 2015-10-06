@@ -1,4 +1,4 @@
-﻿define(['plugins/router', 'jquery', 'notificationService', 'underscore', 'statusTracker', 'etrLocales'], function (router, jquery, notificationService, _, statusTracker)
+﻿define(['plugins/router', 'jquery', 'notificationService', 'underscore', 'statusTracker', 'i18n!nls/localResources'], function (router, jquery, notificationService, _, statusTracker, localResources)
 {
     'use strict';
     var incrementor = 1;
@@ -243,8 +243,8 @@
     wcfDispatcherDef.PreauthUrl = undefined;
     wcfDispatcherDef.AuthDialog = undefined;
     wcfDispatcherDef.HandleUnauthorizedError = true;
-    wcfDispatcherDef.NotFoundMessage = ETR.LocalResources.CommonUserMessageNotFound;
-    wcfDispatcherDef.ForbiddenMessage = ETR.LocalResources.CommonUserMessageForbidden;
+    wcfDispatcherDef.NotFoundMessage = localResources.CommonUserMessageNotFound;
+    wcfDispatcherDef.ForbiddenMessage = localResources.CommonUserMessageForbidden;
     wcfDispatcherDef.singletsCalls = {};
     wcfDispatcherDef.faultHandlers = [wcfDispatcherDef.prototype.forbiddenHandler, wcfDispatcherDef.prototype.notFoundHandler, wcfDispatcherDef.prototype.commonFaultHandler];
     wcfDispatcherDef.tryParseFaultResponse = wcfDispatcherDef.prototype.tryParseFaultResponse = function (result)

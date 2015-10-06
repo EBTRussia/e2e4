@@ -3,17 +3,20 @@ This file in the main entry point for defining grunt tasks and using grunt plugi
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkID=513275&clcid=0x409
 */
 
-
-var excludeModules = [];
-var includeModules = [
-    'libs/requirejs/require',
-    'demo/app',
-    'demo/shell'
-];
-
 module.exports = function (grunt)
 {
     'use strict';
+
+    var excludeModules = [];
+    var includeModules = [
+        'libs/requirejs/require',
+        'demo/app',
+        'demo/shell',
+        'WcfDispatcher'
+    ];
+
+
+
     var pkg = grunt.file.readJSON('package.json');
     grunt.initConfig({
         pkg: pkg,
@@ -67,7 +70,8 @@ module.exports = function (grunt)
                         build: true
                     },
                     include: includeModules,
-                    exclude: excludeModules
+                    exclude: excludeModules,
+                    locale: 'en-us'
                 }
             }
         },

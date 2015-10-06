@@ -1,4 +1,4 @@
-﻿define(['WcfDispatcher', 'jquery', 'notificationService', 'underscore', 'statusTracker', '$fileDownload'], function (wcfDispatcherDef, jquery, notificationService, _, statusTracker)
+﻿define(['WcfDispatcher', 'jquery', 'notificationService', 'underscore', 'statusTracker', 'i18n!nls/localResources', '$fileDownload'], function (wcfDispatcherDef, jquery, notificationService, _, statusTracker, localResources)
 {
     'use strict';
     _.extend(wcfDispatcherDef.prototype,
@@ -31,6 +31,6 @@
             notificationService.error(wcfDispatcherDef.ErrorOnFileDownload);
         }
     });
-    wcfDispatcherDef.ErrorOnFileDownload = ETR.LocalResources.CommonUserMessageErrorOnFileDownload;
+    wcfDispatcherDef.ErrorOnFileDownload = localResources.CommonUserMessageErrorOnFileDownload;
     return wcfDispatcherDef;
 });

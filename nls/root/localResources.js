@@ -1,5 +1,4 @@
-﻿window.ETR = window.ETR || {};
-window.ETR.LocalResources = {
+﻿define({
     CommonDecadeNameGenitiveFirst: 'Первую декаду',
     CommonDecadeNameGenitiveSecond: 'Вторую декаду',
     CommonDecadeNameGenitiveThird: 'Третью декаду',
@@ -29,5 +28,5 @@ window.ETR.LocalResources = {
     CommonUserMessageNoData: 'Данные не найдены',
     CommonUserMessageShowData: 'Показать',
     CommonUserMessageStopLoading: 'Нажмите для остановки загрузки данных'
-};
+});
 
