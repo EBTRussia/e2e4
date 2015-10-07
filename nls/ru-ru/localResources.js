@@ -1,10 +1,4 @@
 ﻿define({
-    CommonDecadeNameGenitiveFirst: 'Первую декаду',
-    CommonDecadeNameGenitiveSecond: 'Вторую декаду',
-    CommonDecadeNameGenitiveThird: 'Третью декаду',
-    CommonDecadeNameNominativeFirst: 'Первая декада',
-    CommonDecadeNameNominativeSecond: 'Вторая декада',
-    CommonDecadeNameNominativeThird: 'Третья декада',
     CommonUserMessageErrorOnFileUpload: 'При попытке загрузить файл произошла ошибка.',
     CommonUserMessageDuplicateUploadFileName: 'Файл с таким названием уже загружен',
     CommonUserMessageYes: 'Да',

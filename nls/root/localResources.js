@@ -1,10 +1,4 @@
 ﻿define({
-    CommonDecadeNameGenitiveFirst: 'First ten-day of',
-    CommonDecadeNameGenitiveSecond: 'Second ten-day of',
-    CommonDecadeNameGenitiveThird: 'Third ten-day of',
-    CommonDecadeNameNominativeFirst: 'First ten-day of',
-    CommonDecadeNameNominativeSecond: 'Second ten-day of',
-    CommonDecadeNameNominativeThird: 'Third ten-day of',
     CommonUserMessageErrorOnFileUpload: 'Error occured on file upload.',
     CommonUserMessageDuplicateUploadFileName: 'File with the same name already uploaded',
     CommonUserMessageYes: 'Yes',
