@@ -1,4 +1,4 @@
-﻿define(['jquery', 'ko', 'underscore', 'StatusViewModel'], function (jquery, ko, _, statusViewModelDef)
+﻿define(['jquery', 'ko', 'underscore', 'StatusViewModel', 'koExtender'], function (jquery, ko, _, statusViewModelDef)
 {
     'use strict';
     var statusTracker = function ()

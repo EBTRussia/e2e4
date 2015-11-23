@@ -2,4 +2,3 @@
     "root": true,
     "ru-ru": true
 });
-
