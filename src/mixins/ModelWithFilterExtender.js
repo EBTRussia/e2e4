@@ -1,4 +1,4 @@
-﻿define(['ko', 'underscore'], function (ko, _)
+﻿define(['ko', 'underscore', 'jquery'], function (ko, _, jquery)
 {
     'use strict';
     var modelWithFilterExtender = {
