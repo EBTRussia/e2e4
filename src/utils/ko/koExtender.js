@@ -1,4 +1,4 @@
-﻿define(['ko'],
+﻿define(['ko', 'jquery'],
     function (ko)
     {
         'use strict';
@@ -16,7 +16,10 @@
         {
             options.owner.filter = options.owner.filter || {};
             options.owner.filter[options.fieldName] = target;
-            target.defaultValue = options.defaultValue === undefined ? target() : options.defaultValue;
+            var clonedObject = jquery.extend(true, {}, { defaultValue: (options.defaultValue === undefined ? target() : options.defaultValue) });
+
+            target.defaultValue = clonedObject.defaultValue;
+
             target.ignoreOnAutoMap = (!!options.ignoreOnAutoMap) || false;
             target.formatter = options.formatter || undefined;
             target.emptyIsNull = options.emptyIsNull || false;
