@@ -1,5 +1,5 @@
 ﻿define(['ko', 'jquery'],
-    function (ko)
+    function (ko, jquery)
     {
         'use strict';
 
