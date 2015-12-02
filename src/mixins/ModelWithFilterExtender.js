@@ -46,7 +46,8 @@
             {
                 for (var indexer in this.filter)
                 {
-                    this.filter[indexer](this.filter[indexer].defaultValue);
+                    var clonedObject = jquery.extend(true, {}, { defaultValue: this.filter[indexer].defaultValue });
+                    this.filter[indexer](clonedObject.defaultValue);
                 }
             };
         },
