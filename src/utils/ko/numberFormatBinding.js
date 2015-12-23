@@ -5,10 +5,11 @@
         after: ['value', 'text'],
         update: function (element, valueAccessor, allBindingsAccessor)
         {
+            var format = ko.unwrap(valueAccessor()) || '0,0[.]00';
             var formatFn = function (val, zeroesCount)
             {
                 var txt = '';
-                if (val !== null && val !== undefined && !isNaN(val))
+                if (val !== null && val !== undefined && !isNaN(val) && val !== ETR.EmptyString)
                 {
                     txt = numbro(val).format(format);
                     if (zeroesCount > 0 && txt.length < zeroesCount)
@@ -25,9 +26,7 @@
                 }
                 return txt;
             };
-
-
-            var format = ko.unwrap(valueAccessor()) || '0,0[.]00';
+            
             var leadZerosCount = ko.unwrap(allBindingsAccessor.get('withLeadZeros')) || 0;
             var value;
             var text;
