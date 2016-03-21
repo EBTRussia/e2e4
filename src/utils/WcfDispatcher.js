@@ -108,7 +108,7 @@
                         .done(function ()
                         {
                             delete self.rejectsOnDispose[requestId];
-                            d.resolveWith(self.requestContext || self, jquery.makeArray(arguments));
+                            d.resolveWith(settings.context || self.requestContext || self, jquery.makeArray(arguments));
                         }).fail(function (error)
                         {
                             delete self.rejectsOnDispose[requestId];
@@ -127,7 +127,7 @@
                                         {
                                             self.makeServiceCall.call(self, settings, d).done(function ()
                                             {
-                                                d.resolveWith(self.requestContext || self, jquery.makeArray(arguments));
+                                                d.resolveWith(settings.context || self.requestContext || self, jquery.makeArray(arguments));
                                             });
                                         } else
                                         {
@@ -140,13 +140,13 @@
                                     {
                                         self.makeServiceCall.call(self, settings, d).done(function ()
                                         {
-                                            d.resolveWith(self.requestContext || self, jquery.makeArray(arguments));
+                                            d.resolveWith(settings.context || self.requestContext || self, jquery.makeArray(arguments));
                                         });
                                     });
                                 }
                             } else
                             {
-                                d.rejectWith(self.requestContext || self, jquery.makeArray(arguments));
+                                d.rejectWith(settings.context || self.requestContext || self, jquery.makeArray(arguments));
                             }
                         });
 
