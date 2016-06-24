@@ -2,7 +2,7 @@
 {
     'use strict';
     ko.bindingHandlers.datepicker = {
-        after: ['value', 'dateFormat'],
+        after: ['value', 'dateFormat', 'attr'],
         init: function (element, valueAccessor, allBindingsAccessor)
         {
             var $el = jquery(element);
