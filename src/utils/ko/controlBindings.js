@@ -332,6 +332,19 @@
             }, 0);
         }
     };
+    
+    ko.bindingHandlers.bscollapse = {
+        init: function(element, valueAccessor) {
+            var targetElement = ko.unwrap(valueAccessor());
+            jquery(element).click(function(){
+            	jquery(targetElement).collapse('toggle');
+            });
+
+            jquery(targetElement).find('[role=close]').click(function(){
+            	jquery(targetElement).collapse('hide');
+            });
+        }
+    };
 
     ko.bindingHandlers.carousel = {
         init: function (element, valueAccessor)
