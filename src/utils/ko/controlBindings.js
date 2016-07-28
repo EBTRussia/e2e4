@@ -314,7 +314,7 @@
                     subscriptions.push(refreshOn.subscribe(function () {
                         setTimeout(function () {
                             $(element).selectpicker('refresh');
-                        }, 10);
+                        }, 0);
                     }, this));
                 }
             }, this);
@@ -351,7 +351,7 @@
             setTimeout(function ()
             {
                 $(element).selectpicker('refresh');
-            }, 10);
+            }, 0);
         }
     };
     
