@@ -16,7 +16,7 @@
             var date = moment(ko.unwrap(valueAccessor()));
             if (date.isValid())
             {
-                $el.val($.datepicker.formatDate($.datepicker._defaults.dateFormat, date.toDate()));
+                $el.val(jquery.datepicker.formatDate(jquery.datepicker._defaults.dateFormat, date.toDate()));
             }
             var customSettings = allBindingsAccessor.get('datepickerOptions') || {};
             $el.datepicker(customSettings);
@@ -80,7 +80,7 @@
                 }
             } else
             {
-                $.datepicker._clearDate(element);
+            	jquery.datepicker._clearDate(element);
             }
             var enable = allBindingsAccessor.get('enable');
             if (enable !== undefined)
