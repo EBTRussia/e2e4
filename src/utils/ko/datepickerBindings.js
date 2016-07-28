@@ -9,14 +9,14 @@
 
             var changeHandler = function ()
             {
-                var observable = valueAccessor();
+                var observable = valueAccessor;
                 observable($el.datepicker('getDate'));
                 $el.blur();
             };
             var date = moment(ko.unwrap(valueAccessor()));
             if (date.isValid())
             {
-                $el.val(jquery.datepicker.formatDate(jquery.datepicker._defaults.dateFormat, date.toDate()));
+                $el.val($.datepicker.formatDate($.datepicker._defaults.dateFormat, date.toDate()));
             }
             var customSettings = allBindingsAccessor.get('datepickerOptions') || {};
             $el.datepicker(customSettings);
@@ -80,7 +80,7 @@
                 }
             } else
             {
-                jquery.datepicker._clearDate(element);
+                $.datepicker._clearDate(element);
             }
             var enable = allBindingsAccessor.get('enable');
             if (enable !== undefined)
