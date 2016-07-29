@@ -9,7 +9,7 @@
 
             var changeHandler = function ()
             {
-                var observable = valueAccessor();
+                var observable = valueAccessor;
                 observable($el.datepicker('getDate'));
                 $el.blur();
             };
@@ -80,7 +80,7 @@
                 }
             } else
             {
-                jquery.datepicker._clearDate(element);
+            	jquery.datepicker._clearDate(element);
             }
             var enable = allBindingsAccessor.get('enable');
             if (enable !== undefined)

@@ -299,15 +299,37 @@
 
     ko.bindingHandlers.bsoptions = {
         before: ['selectedOptions', 'value'],
-        init: function (element)
+        init: function (element, valueAccessor, allBindingsAccessor)
         {
-            var $el = jquery(element);
+            var refreshOnArray = allBindingsAccessor.get('refreshOn');
+            var $el = $(element);
             $el.selectpicker();
+
+            var subscriptions = [];
+            if (typeof refreshOnArray !== "array") {
+                refreshOnArray = [refreshOnArray];
+            }
+            _.forEach(refreshOnArray, function(refreshOn){
+                if (refreshOn && ko.isObservable(refreshOn)) {
+                    subscriptions.push(refreshOn.subscribe(function () {
+                        setTimeout(function () {
+                            $(element).selectpicker('refresh');
+                        }, 0);
+                    }, this));
+                }
+            }, this);
+
             ko.utils.domNodeDisposal.addDisposeCallback(element, function ()
             {
+                if (subscriptions) {
+                    _.forEach(subscriptions, function(){
+                        subscription.dispose();
+                    }, this);
+                }
                 $el.selectpicker('destroy');
                 $el = null;
             });
+
         },
         update: function (element, valueAccessor, allBindingsAccessor)
         {
@@ -328,8 +350,21 @@
 
             setTimeout(function ()
             {
-                jquery(element).selectpicker('refresh');
+                $(element).selectpicker('refresh');
             }, 0);
+        }
+    };
+    
+    ko.bindingHandlers.bscollapse = {
+        init: function(element, valueAccessor) {
+            var targetElement = ko.unwrap(valueAccessor());
+            jquery(element).click(function(){
+            	jquery(targetElement).collapse('toggle');
+            });
+
+            jquery(targetElement).find('[role=close]').click(function(){
+            	jquery(targetElement).collapse('hide');
+            });
         }
     };
 
