@@ -9,8 +9,11 @@
 
             var changeHandler = function ()
             {
-                var observable = valueAccessor;
-                observable($el.datepicker('getDate'));
+                var target = valueAccessor();
+                if(ko.isObservable(target))
+                {
+                    target($el.datepicker('getDate'));
+                }
                 $el.blur();
             };
             var date = moment(ko.unwrap(valueAccessor()));
