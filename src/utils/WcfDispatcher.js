@@ -21,6 +21,8 @@
                 context: settings.context || this.requestContext,
                 beforeSend: settings.beforeSend || undefined,
                 headers: settings.headers || undefined,
+                crossDomain: settings.crossDomain || undefined,
+                xhrFields: settings.xhrFields || undefined
             };
 
             if (singletKey)
