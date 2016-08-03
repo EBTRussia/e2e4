@@ -21,7 +21,7 @@
                 context: settings.context || this.requestContext,
                 beforeSend: settings.beforeSend || undefined,
                 headers: settings.headers || undefined,
-                crossDomain: settings.crossDomain || undefined,
+                crossDomain: !!settings.crossDomain,
                 xhrFields: settings.xhrFields || undefined
             };
 
