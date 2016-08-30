@@ -163,10 +163,10 @@
 
                 }
             }
-
+            var savePrevious = !!allBindingsAccessor.get('multiple');
             if (viewModel.selected() === true)
             {
-                listViewModel.setSelection(viewModel);
+                listViewModel.setSelection(viewModel, savePrevious);
             }
             var keyHandler = function (evt)
             {
