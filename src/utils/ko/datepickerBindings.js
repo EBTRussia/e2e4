@@ -17,11 +17,16 @@
                 $el.blur();
             };
             var date = moment(ko.unwrap(valueAccessor()));
-            if (date.isValid())
-            {
-                $el.val(jquery.datepicker.formatDate(jquery.datepicker._defaults.dateFormat, date.toDate()));
-            }
             var customSettings = allBindingsAccessor.get('datepickerOptions') || {};
+            var initDateFormat;
+            if (customSettings.dateFormat) {
+                initDateFormat = customSettings.dateFormat;
+            } else {
+                initDateFormat = jquery.datepicker._defaults.dateFormat;
+            }
+            if (date.isValid()){
+                $el.val(jquery.datepicker.formatDate(initDateFormat, date.toDate()));
+            }
             $el.datepicker(customSettings);
             $el.on('change', changeHandler);
 
