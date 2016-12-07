@@ -7,15 +7,13 @@
         {
             var $el = jquery(element);
 
-            var changeHandler = function ()
-            {
-                var target = valueAccessor();
-                if(ko.isObservable(target))
-                {
-                    target($el.datepicker('getDate'));
+            ko.utils.registerEventHandler(element, "change", function() {
+                var observable = valueAccessor();
+                if (ko.isObservable(observable)) {
+                    observable($(element).datepicker("getDate"));
                 }
-                $el.blur();
-            };
+            });
+
             var date = moment(ko.unwrap(valueAccessor()));
             var customSettings = allBindingsAccessor.get('datepickerOptions') || {};
             var initDateFormat;
@@ -28,7 +26,6 @@
                 $el.val(jquery.datepicker.formatDate(initDateFormat, date.toDate()));
             }
             $el.datepicker(customSettings);
-            $el.on('change', changeHandler);
 
             var validationSubscription = null;
 
