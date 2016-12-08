@@ -8,21 +8,17 @@
             var $el = jquery(element);
 
             ko.utils.registerEventHandler(element, "change", function() {
-                var observable = valueAccessor();
-                if (ko.isObservable(observable)) {
-                    observable($(element).datepicker("getDate"));
+                var target = valueAccessor();
+                if (ko.isObservable(target)) {
+                    target($el.datepicker("getDate"));
                 }
-                $(element).blur();
+                $el.blur();
             });
 
             var date = moment(ko.unwrap(valueAccessor()));
             var customSettings = allBindingsAccessor.get('datepickerOptions') || {};
-            var initDateFormat;
-            if (customSettings.dateFormat) {
-                initDateFormat = customSettings.dateFormat;
-            } else {
-                initDateFormat = jquery.datepicker._defaults.dateFormat;
-            }
+            var initDateFormat = customSettings.dateFormat || jquery.datepicker._defaults.dateFormat;
+
             if (date.isValid()){
                 $el.val(jquery.datepicker.formatDate(initDateFormat, date.toDate()));
             }
