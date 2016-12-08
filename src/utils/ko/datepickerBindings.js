@@ -7,23 +7,22 @@
         {
             var $el = jquery(element);
 
-            var changeHandler = function ()
-            {
+            ko.utils.registerEventHandler(element, "change", function() {
                 var target = valueAccessor();
-                if(ko.isObservable(target))
-                {
-                    target($el.datepicker('getDate'));
+                if (ko.isObservable(target)) {
+                    target($el.datepicker("getDate"));
                 }
                 $el.blur();
-            };
+            });
+
             var date = moment(ko.unwrap(valueAccessor()));
-            if (date.isValid())
-            {
-                $el.val(jquery.datepicker.formatDate(jquery.datepicker._defaults.dateFormat, date.toDate()));
-            }
             var customSettings = allBindingsAccessor.get('datepickerOptions') || {};
+            var initDateFormat = customSettings.dateFormat || jquery.datepicker._defaults.dateFormat;
+
+            if (date.isValid()){
+                $el.val(jquery.datepicker.formatDate(initDateFormat, date.toDate()));
+            }
             $el.datepicker(customSettings);
-            $el.on('change', changeHandler);
 
             var validationSubscription = null;
 
