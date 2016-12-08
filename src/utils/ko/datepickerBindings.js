@@ -12,6 +12,7 @@
                 if (ko.isObservable(observable)) {
                     observable($(element).datepicker("getDate"));
                 }
+                $(element).blur();
             });
 
             var date = moment(ko.unwrap(valueAccessor()));
