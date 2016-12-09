@@ -63,7 +63,6 @@
                 }
                 $el.datepicker('option', 'disabled', false);
                 $el.datepicker('destroy');
-                $el.off('change', changeHandler);
                 $el = null;
             });
         },
